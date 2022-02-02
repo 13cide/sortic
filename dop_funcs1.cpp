@@ -22,8 +22,8 @@ int pow(int n, int i) {
 }
 
 bool is_sorted(vector<int> &v) { // проверка на отсортированность
-    if (v.size() > 2) {
-        for (int i = 0; i < v.size() - 2; i++) if (v[i + 1] < v[i]) return false;
+    if (v.size() > 1) {
+        for (int i = 0; i < v.size() - 1; i++) if (v[i + 1] < v[i]) return false;
     }
     return true;
 }
@@ -31,7 +31,7 @@ bool is_sorted(vector<int> &v) { // проверка на отсортированность
 void print(vector<int> &a, vector<int> &b) {
     cout << "    a                            b" << endl << "--------                     --------" << endl;
     int i = 0;
-    while (i < a.size() and i < b.size()) {
+    while (i < a.size() && i < b.size()) {
         cout << a[i] << "                            " << b[i]  << endl;
         i++;
     }

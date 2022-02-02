@@ -1,11 +1,7 @@
 #include "sortic.h"
 
-void initialize_a(vector<int> &a) { // заполнение массива
-    ifstream input_nums;
-    input_nums.open(R"(C:\Users\aleks\CLionProjects\check\input_nums.txt)"); //файл с числами
-    string nums;
+void initialize_a(vector<int> &a, string nums) { // заполнение массива
     string n = "";
-    getline(input_nums, nums);
     for (int i = 0; nums[i] != '\0'; i++) {
         if (nums[i] != ' ') {
             n += nums[i];
@@ -58,11 +54,16 @@ void solve(vector<int> &a, vector<int> &b, vector<string> &com) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     vector<int> a;
     vector<int> b;
+    string nums;
     vector<string> com;
-    initialize_a(a);
+    ifstream input_nums;
+    input_nums.open(R"(C:\Users\aleks\CLionProjects\check\input_nums.txt)");
+    getline(input_nums, nums);
+    if (argc == 1) initialize_a(a, nums);
+    else initialize_a(a, argv[1]);
     if (!is_sorted(a)) solve(a, b, com);
     ofstream output;
     output.open(R"(C:\Users\aleks\CLionProjects\check\input_commands.txt)"); // вывод

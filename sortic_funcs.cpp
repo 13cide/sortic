@@ -1,7 +1,7 @@
 #include "sortic.h"
 
 void s(vector<int> &v) { // sa будет писаться в коде как s(a); sb как s(b);
-    if(v.size() > 2) {
+    if(v.size() > 1) {
         int tmp = v[0];
         v[0] = v[1];
         v[1] = tmp;
